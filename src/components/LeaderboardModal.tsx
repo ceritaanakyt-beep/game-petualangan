@@ -48,7 +48,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
         );
       default:
         return (
-          <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 font-bold text-xs">
+          <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 font-bold text-xs">
             #{rank}
           </div>
         );
@@ -56,35 +56,35 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-6 text-slate-100 flex flex-col gap-6">
+    <div className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-6 text-slate-800 flex flex-col gap-6">
       
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 rounded-3xl bg-slate-900/90 border border-indigo-800/50 backdrop-blur-md shadow-xl">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 rounded-3xl bg-white/95 border border-slate-200/90 backdrop-blur-md shadow-md">
         <div className="flex items-center gap-3">
           <button
             onClick={() => {
               sounds.playClick();
               onBack();
             }}
-            className="p-2.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+            className="p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-950 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="font-game text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-                <Trophy className="w-6 h-6 text-amber-400" />
+              <h1 className="font-game text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                <Trophy className="w-6 h-6 text-amber-500" />
                 Papan Peringkat Kosmis
               </h1>
             </div>
-            <p className="text-xs text-slate-300">
+            <p className="text-xs text-slate-500 font-medium">
               Peringkat penjelajah matematika terbaik SD Negeri Bakalan 01 Polokarto!
             </p>
           </div>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-950 border border-indigo-900/60">
+        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-100 border border-slate-200">
           <button
             onClick={() => {
               sounds.playClick();
@@ -92,8 +92,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               filterMode === 'all'
-                ? 'bg-indigo-600 text-white shadow'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-indigo-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Semua
@@ -105,8 +105,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               filterMode === 'adventure'
-                ? 'bg-indigo-600 text-white shadow'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-indigo-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Sektor Galaksi
@@ -118,8 +118,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               filterMode === 'sprint'
-                ? 'bg-indigo-600 text-white shadow'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-indigo-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Sprint 60s
@@ -131,49 +131,49 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
       {sortedEntries.length >= 3 && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* 2nd Place */}
-          <div className="order-2 sm:order-1 rounded-2xl bg-slate-900/80 border border-slate-700/60 p-4 text-center flex flex-col items-center justify-between">
+          <div className="order-2 sm:order-1 rounded-2xl bg-white border border-slate-200 p-4 text-center flex flex-col items-center justify-between shadow-sm">
             <span className="text-2xl mb-1">🥈</span>
             <div className="relative mb-2">
               <CharacterAvatar characterId={sortedEntries[1].characterId} size="md" />
             </div>
-            <h4 className="font-game text-base font-bold text-white max-w-[140px] truncate">
+            <h4 className="font-game text-base font-bold text-slate-900 max-w-[140px] truncate">
               {sortedEntries[1].playerName}
             </h4>
-            <span className="text-xs text-indigo-300 font-semibold">{sortedEntries[1].mode}</span>
-            <div className="mt-2 text-amber-300 font-game font-black text-lg">
+            <span className="text-xs text-indigo-600 font-semibold">{sortedEntries[1].mode}</span>
+            <div className="mt-2 text-slate-800 font-game font-black text-lg">
               {sortedEntries[1].score} Poin
             </div>
           </div>
 
           {/* 1st Place Champion */}
-          <div className="order-1 sm:order-2 rounded-3xl bg-gradient-to-b from-amber-950/60 via-slate-900 to-slate-950 border border-amber-500/60 p-5 text-center flex flex-col items-center justify-between shadow-xl shadow-amber-500/10 scale-105">
+          <div className="order-1 sm:order-2 rounded-3xl bg-gradient-to-b from-amber-50 via-white to-white border-2 border-amber-300 p-5 text-center flex flex-col items-center justify-between shadow-md scale-105">
             <span className="text-3xl mb-1">🥇</span>
             <div className="relative mb-2">
               <CharacterAvatar characterId={sortedEntries[0].characterId} size="lg" showBadge />
-              <div className="absolute -bottom-2 bg-amber-400 text-slate-950 text-[10px] font-black px-2 rounded-full uppercase">
+              <div className="absolute -bottom-2 bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
                 Juara 1
               </div>
             </div>
-            <h3 className="font-game text-lg font-black text-white max-w-[160px] truncate">
+            <h3 className="font-game text-lg font-black text-slate-900 max-w-[160px] truncate">
               {sortedEntries[0].playerName}
             </h3>
-            <span className="text-xs text-amber-300 font-bold">{sortedEntries[0].mode}</span>
-            <div className="mt-2 text-yellow-300 font-game font-black text-2xl">
+            <span className="text-xs text-amber-800 font-bold">{sortedEntries[0].mode}</span>
+            <div className="mt-2 text-amber-700 font-game font-black text-2xl">
               {sortedEntries[0].score} Poin
             </div>
           </div>
 
           {/* 3rd Place */}
-          <div className="order-3 sm:order-3 rounded-2xl bg-slate-900/80 border border-amber-900/50 p-4 text-center flex flex-col items-center justify-between">
+          <div className="order-3 sm:order-3 rounded-2xl bg-white border border-slate-200 p-4 text-center flex flex-col items-center justify-between shadow-sm">
             <span className="text-2xl mb-1">🥉</span>
             <div className="relative mb-2">
               <CharacterAvatar characterId={sortedEntries[2].characterId} size="md" />
             </div>
-            <h4 className="font-game text-base font-bold text-white max-w-[140px] truncate">
+            <h4 className="font-game text-base font-bold text-slate-900 max-w-[140px] truncate">
               {sortedEntries[2].playerName}
             </h4>
-            <span className="text-xs text-indigo-300 font-semibold">{sortedEntries[2].mode}</span>
-            <div className="mt-2 text-amber-300 font-game font-black text-lg">
+            <span className="text-xs text-indigo-600 font-semibold">{sortedEntries[2].mode}</span>
+            <div className="mt-2 text-slate-800 font-game font-black text-lg">
               {sortedEntries[2].score} Poin
             </div>
           </div>
@@ -181,8 +181,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
       )}
 
       {/* Leaderboard Table List */}
-      <div className="rounded-3xl bg-slate-900/90 border border-indigo-800/40 p-4 sm:p-6 shadow-2xl flex flex-col gap-3">
-        <div className="flex items-center justify-between px-2 text-xs font-semibold text-slate-400 border-b border-indigo-900/40 pb-2">
+      <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-6 shadow-lg flex flex-col gap-3">
+        <div className="flex items-center justify-between px-2 text-xs font-bold text-slate-400 border-b border-slate-100 pb-2">
           <span>Peringkat & Pemain</span>
           <div className="flex items-center gap-8 pr-2">
             <span className="hidden sm:inline">Akurasi & Waktu</span>
@@ -204,8 +204,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
                 key={entry.id || idx}
                 className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl border transition-all ${
                   isMe
-                    ? 'bg-indigo-950/90 border-indigo-400 shadow-md scale-[1.01]'
-                    : 'bg-slate-950/60 border-indigo-950/60 hover:border-indigo-800/50'
+                    ? 'bg-indigo-50/90 border-indigo-300 shadow-xs scale-[1.01]'
+                    : 'bg-white border-slate-100 hover:border-indigo-200 hover:bg-slate-50/80 shadow-xs'
                 }`}
               >
                 {/* Left: Rank badge, Avatar, Name & Mode */}
@@ -218,16 +218,16 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
 
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-game text-sm sm:text-base font-bold text-white truncate max-w-[150px] sm:max-w-[200px]">
+                      <span className="font-game text-sm sm:text-base font-bold text-slate-900 truncate max-w-[150px] sm:max-w-[200px]">
                         {entry.playerName}
                       </span>
                       {isMe && (
-                        <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-indigo-800 text-sky-200">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700 border border-indigo-200">
                           Kamu
                         </span>
                       )}
                     </div>
-                    <span className="text-[11px] text-slate-400 truncate block">
+                    <span className="text-[11px] text-slate-500 truncate block font-medium">
                       {entry.mode}
                     </span>
                   </div>
@@ -235,16 +235,16 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
 
                 {/* Right: Accuracy, Time, and Score */}
                 <div className="flex items-center gap-4 sm:gap-8 shrink-0">
-                  <div className="hidden sm:flex flex-col items-end text-xs text-slate-400">
-                    <span className="text-emerald-400 font-bold">{entry.accuracy}% Akurasi</span>
+                  <div className="hidden sm:flex flex-col items-end text-xs text-slate-500">
+                    <span className="text-emerald-700 font-bold">{entry.accuracy}% Akurasi</span>
                     <span>{entry.timeSeconds}s</span>
                   </div>
 
                   <div className="text-right">
-                    <span className="font-game text-base sm:text-lg font-black text-amber-300">
+                    <span className="font-game text-base sm:text-lg font-black text-amber-800">
                       {entry.score}
                     </span>
-                    <span className="text-[10px] text-amber-400/80 block leading-none">Poin</span>
+                    <span className="text-[10px] text-amber-600 font-bold block leading-none">Poin</span>
                   </div>
                 </div>
               </div>

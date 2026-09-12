@@ -238,39 +238,39 @@ export const CharacterGuideBubble: React.FC<GuideBubbleProps> = ({
     SCHOOL_CHARACTERS.find((c) => c.id === characterId) || SCHOOL_CHARACTERS[0];
 
   const getBorderColor = () => {
-    if (isCorrect === true) return 'border-emerald-500 bg-emerald-950/80';
-    if (isCorrect === false) return 'border-rose-500 bg-rose-950/80';
-    return 'border-indigo-500/50 bg-slate-900/90';
+    if (isCorrect === true) return 'border-emerald-300 bg-emerald-50 text-slate-800';
+    if (isCorrect === false) return 'border-rose-300 bg-rose-50 text-slate-800';
+    return 'border-indigo-200 bg-white text-slate-800';
   };
 
   return (
     <div
-      className={`flex items-start gap-3 p-3.5 rounded-2xl border backdrop-blur-md shadow-xl transition-all ${getBorderColor()} ${className}`}
+      className={`flex items-start gap-3 p-3.5 rounded-2xl border shadow-md transition-all ${getBorderColor()} ${className}`}
     >
       <div className="shrink-0 flex flex-col items-center">
         <CharacterAvatar characterId={character.id} size="md" />
-        <span className="mt-1 text-[11px] font-bold text-amber-300 tracking-tight text-center max-w-[80px] leading-none line-clamp-1">
+        <span className="mt-1 text-[11px] font-bold text-indigo-900 tracking-tight text-center max-w-[80px] leading-none line-clamp-1">
           {character.name.split(' ')[0]}
         </span>
       </div>
       <div className="flex-1 min-w-0 text-left">
         <div className="flex items-center justify-between gap-1 mb-1">
-          <span className="text-xs font-semibold text-slate-300 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block"></span>
+          <span className="text-xs font-semibold text-slate-600 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block"></span>
             {character.role}
           </span>
           {character.schoolName && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-900/70 text-indigo-200 border border-indigo-700/50">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 border border-indigo-200">
               {character.schoolName}
             </span>
           )}
         </div>
-        <p className="text-sm font-medium text-slate-100 leading-snug">
+        <p className="text-sm font-semibold text-slate-800 leading-snug">
           {message}
         </p>
         {tip && (
-          <div className="mt-2 p-2 rounded-xl bg-indigo-950/60 border border-indigo-800/40 text-xs text-amber-200/90">
-            <strong className="text-amber-400">💡 Tips Pintar: </strong>
+          <div className="mt-2 p-2.5 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-slate-700">
+            <strong className="text-amber-800">💡 Tips Pintar: </strong>
             {tip}
           </div>
         )}

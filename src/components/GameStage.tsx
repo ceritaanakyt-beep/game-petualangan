@@ -218,25 +218,25 @@ export const GameStage: React.FC<GameStageProps> = ({
 
   if (!currentQ) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-white">
-        <div className="animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full mb-3" />
-        <p className="font-game text-lg">Mempersiapkan Koordinat Galaksi...</p>
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-slate-800">
+        <div className="animate-spin w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full mb-3" />
+        <p className="font-game text-lg font-bold">Mempersiapkan Koordinat Galaksi...</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 flex flex-col gap-5 text-slate-100">
+    <div className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 flex flex-col gap-5 text-slate-800">
       
       {/* Top HUD Bar */}
-      <div className="flex items-center justify-between gap-3 bg-slate-900/90 backdrop-blur-md border border-indigo-800/50 rounded-2xl p-3 shadow-xl">
+      <div className="flex items-center justify-between gap-3 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3 shadow-md">
         {/* Back button */}
         <button
           onClick={() => {
             sounds.playClick();
             onExit();
           }}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 text-xs font-bold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali</span>
@@ -244,7 +244,7 @@ export const GameStage: React.FC<GameStageProps> = ({
 
         {/* Progress & Title */}
         <div className="text-center">
-          <span className="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-700/50">
+          <span className="text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded bg-indigo-100 text-indigo-700 border border-indigo-200">
             {mode === 'sector' && sector
               ? `Sektor ${sector.sectorNumber} • Soal ${currentIndex + 1}/${questions.length}`
               : 'Lintasan Waktu Sprint'}
@@ -257,36 +257,36 @@ export const GameStage: React.FC<GameStageProps> = ({
             <div
               className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-game font-bold text-sm ${
                 timeRemaining <= 10
-                  ? 'bg-rose-950 text-rose-300 border border-rose-600 animate-pulse'
-                  : 'bg-indigo-950 text-sky-300 border border-indigo-700'
+                  ? 'bg-rose-50 text-rose-700 border border-rose-400 animate-pulse'
+                  : 'bg-indigo-50 text-indigo-700 border border-indigo-200'
               }`}
             >
-              <Clock className="w-4 h-4 text-orange-400" />
+              <Clock className="w-4 h-4 text-orange-500" />
               <span>{timeRemaining}s</span>
             </div>
           ) : (
-            <div className="text-xs text-slate-400 font-semibold hidden xs:flex items-center gap-1">
+            <div className="text-xs text-slate-500 font-semibold hidden xs:flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
               <span>{timeElapsed}s</span>
             </div>
           )}
 
-          <div className="px-3 py-1 rounded-xl bg-amber-950/60 border border-amber-500/40 text-amber-300 font-game font-extrabold text-sm sm:text-base">
+          <div className="px-3 py-1 rounded-xl bg-amber-50 border border-amber-300 text-amber-800 font-game font-extrabold text-sm sm:text-base shadow-xs">
             {score} Poin
           </div>
         </div>
       </div>
 
       {/* Flight Stage & Rocket Visual Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-indigo-950/60 via-slate-950 to-slate-900 border border-indigo-700/40 p-5 shadow-2xl flex flex-col items-center justify-center min-h-[140px]">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-sky-50 via-indigo-50/60 to-white border border-sky-200/80 p-5 shadow-md flex flex-col items-center justify-center min-h-[140px]">
         {/* Speed lines */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-200/30 via-transparent to-transparent pointer-events-none" />
 
         {/* Rocket flying in space */}
         <div
           className={`transition-transform duration-500 flex flex-col items-center ${
             rocketBoosting
-              ? 'scale-125 -translate-y-4 filter drop-shadow-[0_0_25px_rgba(59,130,246,0.8)]'
+              ? 'scale-125 -translate-y-4 filter drop-shadow-[0_0_25px_rgba(59,130,246,0.6)]'
               : 'scale-100'
           }`}
         >
@@ -299,7 +299,7 @@ export const GameStage: React.FC<GameStageProps> = ({
 
         {/* Combo Multiplier Badge */}
         {combo >= 2 && (
-          <div className="absolute top-3 right-4 animate-bounce flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-game text-xs font-extrabold shadow-lg">
+          <div className="absolute top-3 right-4 animate-bounce flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-game text-xs font-extrabold shadow-md">
             <Zap className="w-3.5 h-3.5 fill-current" />
             <span>KOMBO ×{combo}!</span>
           </div>
@@ -307,8 +307,8 @@ export const GameStage: React.FC<GameStageProps> = ({
 
         {/* Coins Earned Floating Info */}
         {coinsEarned > 0 && (
-          <div className="absolute top-3 left-4 flex items-center gap-1 text-xs text-yellow-300 font-bold bg-yellow-950/60 px-2 py-0.5 rounded-full border border-yellow-700/40">
-            <Sparkles className="w-3 h-3 text-yellow-400" />
+          <div className="absolute top-3 left-4 flex items-center gap-1 text-xs text-amber-800 font-bold bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300 shadow-xs">
+            <Sparkles className="w-3 h-3 text-amber-600" />
             <span>+{coinsEarned} Koin</span>
           </div>
         )}
@@ -316,64 +316,64 @@ export const GameStage: React.FC<GameStageProps> = ({
 
       {/* Story Context (if provided in question) */}
       {currentQ.storyPrompt && (
-        <div className="p-3.5 rounded-2xl bg-indigo-950/70 border border-indigo-700/50 text-slate-200 text-sm leading-relaxed flex items-start gap-2.5">
+        <div className="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 text-slate-800 text-sm leading-relaxed flex items-start gap-2.5 shadow-xs">
           <span className="text-lg">🚀</span>
           <div>
-            <span className="text-xs font-bold text-amber-300 block mb-0.5">
+            <span className="text-xs font-bold text-amber-800 block mb-0.5">
               Tantangan Soal Cerita Kosmis:
             </span>
-            <p>{currentQ.storyPrompt}</p>
+            <p className="font-medium text-slate-700">{currentQ.storyPrompt}</p>
           </div>
         </div>
       )}
 
       {/* Main Math Problem Card */}
       <div
-        className={`relative rounded-3xl bg-slate-900/90 border border-indigo-500/40 p-6 sm:p-8 shadow-2xl text-center transition-all ${
-          shakeCard ? 'animate-bounce border-rose-500' : ''
+        className={`relative rounded-3xl bg-white border-2 border-indigo-100 p-6 sm:p-8 shadow-xl text-center transition-all ${
+          shakeCard ? 'animate-bounce border-rose-400' : ''
         }`}
       >
-        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">
+        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">
           Hitung Hasil Perkalian Berikut
         </span>
 
         {/* Big Equation */}
         <div className="flex items-center justify-center gap-3 sm:gap-5 my-2">
-          <span className="font-game text-3xl sm:text-5xl font-black text-sky-300 tracking-wider">
+          <span className="font-game text-3xl sm:text-5xl font-black text-indigo-950 tracking-wider">
             {currentQ.num1 < 0 ? `(${currentQ.num1})` : currentQ.num1}
           </span>
-          <span className="font-game text-3xl sm:text-5xl font-black text-amber-400">
+          <span className="font-game text-3xl sm:text-5xl font-black text-amber-500">
             ×
           </span>
-          <span className="font-game text-3xl sm:text-5xl font-black text-sky-300 tracking-wider">
+          <span className="font-game text-3xl sm:text-5xl font-black text-indigo-950 tracking-wider">
             {currentQ.num2 < 0 ? `(${currentQ.num2})` : currentQ.num2}
           </span>
           <span className="font-game text-3xl sm:text-5xl font-black text-slate-400">
             =
           </span>
-          <div className="inline-flex items-center justify-center min-w-[70px] sm:min-w-[100px] h-12 sm:h-16 px-3 rounded-2xl bg-slate-950 border-2 border-dashed border-indigo-500 text-amber-300 font-game text-2xl sm:text-4xl font-extrabold shadow-inner">
+          <div className="inline-flex items-center justify-center min-w-[70px] sm:min-w-[100px] h-12 sm:h-16 px-3 rounded-2xl bg-slate-50 border-2 border-dashed border-indigo-400 text-indigo-900 font-game text-2xl sm:text-4xl font-black shadow-inner">
             {selectedAnswer !== null ? (
-              <span className={isAnswerCorrect ? 'text-emerald-400' : 'text-rose-400'}>
+              <span className={isAnswerCorrect ? 'text-emerald-600' : 'text-rose-600'}>
                 {selectedAnswer}
               </span>
             ) : inputMode === 'keypad' && keypadInput ? (
-              <span>{keypadInput}</span>
+              <span className="text-indigo-950">{keypadInput}</span>
             ) : (
-              <span className="text-slate-600 animate-pulse">?</span>
+              <span className="text-slate-400 animate-pulse">?</span>
             )}
           </div>
         </div>
 
         {/* Toggle Mode Button (Choices vs Keypad) */}
-        <div className="flex items-center justify-center gap-2 mt-4 pt-3 border-t border-indigo-900/40">
+        <div className="flex items-center justify-center gap-2 mt-4 pt-3 border-t border-slate-100">
           <button
             onClick={() => {
               sounds.playClick();
               setInputMode(inputMode === 'choices' ? 'keypad' : 'choices');
             }}
-            className="flex items-center gap-1.5 text-xs text-indigo-300 hover:text-white px-2.5 py-1 rounded-lg bg-indigo-950/60 border border-indigo-800/50 hover:bg-indigo-900/60 transition-colors"
+            className="flex items-center gap-1.5 text-xs text-indigo-700 hover:text-indigo-900 px-3 py-1.5 rounded-xl bg-indigo-50 border border-indigo-200 hover:bg-indigo-100 transition-colors font-bold"
           >
-            <Calculator className="w-3.5 h-3.5" />
+            <Calculator className="w-3.5 h-3.5 text-indigo-600" />
             <span>
               Mode: {inputMode === 'choices' ? 'Pilihan Ganda (Klik)' : 'Ketik Angka'}
             </span>
@@ -389,16 +389,16 @@ export const GameStage: React.FC<GameStageProps> = ({
             const isTarget = opt === currentQ.answer;
 
             let btnStyle =
-              'bg-slate-900/90 hover:bg-indigo-900/70 border-indigo-800/60 text-white hover:border-indigo-500 shadow-md';
+              'bg-white hover:bg-indigo-50/80 border-2 border-slate-200 text-slate-800 hover:border-indigo-400 shadow-sm';
 
             if (selectedAnswer !== null) {
               if (isTarget) {
                 btnStyle =
-                  'bg-emerald-600 text-white border-emerald-400 shadow-lg shadow-emerald-600/40 scale-105';
+                  'bg-emerald-600 text-white border-2 border-emerald-500 shadow-md scale-102';
               } else if (isSelected && !isAnswerCorrect) {
-                btnStyle = 'bg-rose-600 text-white border-rose-400 opacity-80';
+                btnStyle = 'bg-rose-600 text-white border-2 border-rose-500 opacity-90';
               } else {
-                btnStyle = 'bg-slate-950/60 text-slate-500 border-slate-800 opacity-50';
+                btnStyle = 'bg-slate-50 text-slate-400 border-slate-200 opacity-50';
               }
             }
 
@@ -409,8 +409,12 @@ export const GameStage: React.FC<GameStageProps> = ({
                 onClick={() => handleSelectAnswer(opt)}
                 className={`relative flex items-center justify-between p-4 sm:p-5 rounded-2xl border font-game text-xl sm:text-2xl font-bold transition-all duration-200 active:scale-95 ${btnStyle}`}
               >
-                <div className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-lg bg-indigo-950 border border-indigo-700/50 text-indigo-300 text-xs flex items-center justify-center font-sans font-bold">
+                <div className="flex items-center gap-2.5">
+                  <span className={`w-7 h-7 rounded-lg text-xs flex items-center justify-center font-sans font-bold ${
+                    selectedAnswer !== null && (isTarget || isSelected)
+                      ? 'bg-white/20 text-white'
+                      : 'bg-slate-100 border border-slate-300 text-slate-700'
+                  }`}>
                     {['A', 'B', 'C', 'D'][idx]}
                   </span>
                   <span>{opt}</span>
@@ -428,7 +432,7 @@ export const GameStage: React.FC<GameStageProps> = ({
         </div>
       ) : (
         /* Galactic Keypad for typing exact integer answers */
-        <div className="p-4 rounded-3xl bg-slate-900/90 border border-indigo-800/50 max-w-sm mx-auto w-full">
+        <div className="p-4 rounded-3xl bg-white border border-slate-200 shadow-lg max-w-sm mx-auto w-full">
           <div className="grid grid-cols-3 gap-2">
             {['1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '0', '⌫'].map((key) => (
               <button
@@ -446,7 +450,7 @@ export const GameStage: React.FC<GameStageProps> = ({
                     }
                   }
                 }}
-                className="h-12 rounded-xl bg-slate-800 hover:bg-indigo-900 border border-indigo-700/40 font-game text-xl font-bold text-white transition-colors active:scale-95"
+                className="h-12 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 font-game text-xl font-bold text-slate-800 transition-colors active:scale-95"
               >
                 {key}
               </button>
@@ -456,7 +460,7 @@ export const GameStage: React.FC<GameStageProps> = ({
           <button
             disabled={!keypadInput || selectedAnswer !== null}
             onClick={handleKeypadSubmit}
-            className="w-full mt-3 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 font-game text-base font-bold text-white shadow-lg active:scale-95 transition-all disabled:opacity-50"
+            className="w-full mt-3 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 font-game text-base font-bold text-white shadow-md active:scale-95 transition-all disabled:opacity-50"
           >
             Kirim Jawaban
           </button>
@@ -475,7 +479,7 @@ export const GameStage: React.FC<GameStageProps> = ({
 
           <button
             onClick={() => advanceQuestion(false)}
-            className="self-center flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-game text-sm font-bold shadow-lg shadow-indigo-600/30 active:scale-95 transition-all"
+            className="self-center flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-game text-sm font-bold shadow-md shadow-indigo-600/25 active:scale-95 transition-all"
           >
             <span>Lanjut ke Soal Berikutnya</span>
             <ChevronRight className="w-4 h-4" />
@@ -485,12 +489,12 @@ export const GameStage: React.FC<GameStageProps> = ({
 
       {/* Helpful Quick Tip on Request */}
       {!showExplanation && selectedAnswer === null && (
-        <div className="flex items-center justify-between px-2 text-xs text-slate-400">
-          <span className="flex items-center gap-1">
-            <HelpCircle className="w-3.5 h-3.5 text-indigo-400" />
+        <div className="flex items-center justify-between px-2 text-xs text-slate-500">
+          <span className="flex items-center gap-1 font-medium">
+            <HelpCircle className="w-3.5 h-3.5 text-indigo-600" />
             Ingat: perkalian bersusun memisahkan puluhan dan satuan.
           </span>
-          <span className="text-amber-300 font-bold">
+          <span className="text-amber-600 font-bold">
             {progress.completedLevels[sector?.id || '']?.highScore
               ? `Rekor Sektor: ${progress.completedLevels[sector?.id || '']?.highScore} Poin`
               : 'Dapatkan 3 Bintang!'}

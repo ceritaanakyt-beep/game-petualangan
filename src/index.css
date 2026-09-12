@@ -3,6 +3,8 @@
 @layer base {
   body {
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
     user-select: none;
   }
   

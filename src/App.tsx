@@ -207,7 +207,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50/50 text-slate-800 flex flex-col relative selection:bg-indigo-500 selection:text-white">
       {/* Background with glowing space stars and nebulae */}
       <CosmicBackground />
 
@@ -343,10 +343,10 @@ export default function App() {
       )}
 
       {/* School Footer Note */}
-      <footer className="relative z-10 w-full text-center py-4 border-t border-indigo-950 text-slate-400 text-xs flex flex-col sm:flex-row items-center justify-center gap-2">
+      <footer className="relative z-10 w-full text-center py-4 border-t border-slate-200/80 bg-white/70 backdrop-blur-xs text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-center gap-2">
         <span>🚀 Game Edukasi Matematika Kelas 5 SD • Materi Perkalian Bilangan Bulat</span>
         <span className="hidden sm:inline">•</span>
-        <span className="text-indigo-300 font-semibold">
+        <span className="text-indigo-600 font-bold">
           Maskot Bima Satria SD Negeri Bakalan 01 Polokarto
         </span>
       </footer>

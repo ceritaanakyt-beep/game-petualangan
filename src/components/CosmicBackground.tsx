@@ -15,34 +15,35 @@ export const CosmicBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-slate-950">
-      {/* Deep Space Gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.25),rgba(255,255,255,0))]" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl" />
-      <div className="absolute top-2/3 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-indigo-50/40">
+      {/* Soft Luminous Celestial Gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.08),rgba(255,255,255,0))]" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl" />
+      <div className="absolute top-2/3 left-1/3 w-80 h-80 bg-amber-100/50 rounded-full blur-3xl" />
 
-      {/* Twinkling Stars */}
+      {/* Twinkling Stars (in blue, indigo, and gold on bright white) */}
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-white transition-opacity"
+          className="absolute rounded-full transition-opacity"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
             width: `${star.size}px`,
             height: `${star.size}px`,
-            opacity: star.opacity,
+            backgroundColor: star.id % 3 === 0 ? '#6366f1' : star.id % 3 === 1 ? '#0ea5e9' : '#f59e0b',
+            opacity: star.opacity * 0.7,
             animation: `pulse ${star.duration}s ease-in-out infinite`,
             animationDelay: `${star.delay}s`,
-            boxShadow: star.size > 2 ? '0 0 6px rgba(255,255,255,0.8)' : 'none',
+            boxShadow: star.size > 2 ? '0 0 4px rgba(99,102,241,0.4)' : 'none',
           }}
         />
       ))}
 
-      {/* Distant Orbit Rings */}
-      <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full border border-indigo-500/10 pointer-events-none" />
-      <div className="absolute -bottom-64 -left-64 w-[850px] h-[850px] rounded-full border border-indigo-500/5 pointer-events-none" />
+      {/* Delicate Orbit Rings */}
+      <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full border border-indigo-200/40 pointer-events-none" />
+      <div className="absolute -bottom-64 -left-64 w-[850px] h-[850px] rounded-full border border-indigo-200/25 pointer-events-none" />
     </div>
   );
 };
