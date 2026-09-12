@@ -1,0 +1,6 @@
+{
+  "name": "Petualangan Luar Angkasa Matematika Kelas 5",
+  "description": "Game edukasi matematika kelas 5 SD materi perkalian bilangan bulat bertema luar angkasa dengan karakter sekolah SD Bakalan 01, level petualangan, papan peringkat, dan koleksi skin roket.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
